@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title> 主页 </title>
+    <meta charset="UTF-8" />
+    <script type="text/javascript">
+    function getuser(){
+    var username=prompt("用户名","请输入用户名");
+    alert(username);
+    }
+    function ifuser(){
+    alert("你好，个人主页还未完成");
+    }
+    </script>
+</head>
+
+<body>
+<div>
+    <input type="button" value="注册" onclick="window.open('/reg')" />
+    <input th:if="!${flag}" type="button" value="登录" onclick="window.open('/login')" />
+    <input th:if="${flag}" type="button" th:value="${user.name}" onclick="ifuser()" />
+    <input th:if="${flag}" type="button" th:value="登出" onclick="window.open('/logout/')" /><br />
+</div>
+</body>
+</html>
